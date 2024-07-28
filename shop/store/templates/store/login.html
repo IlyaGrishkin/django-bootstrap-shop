@@ -1,0 +1,22 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block login %}
+<form class="login-form" action="/login/new/" method="post">
+  {% csrf_token %}
+    <h2> Регистрация </h2>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Логин</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="login">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Пароль</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="checkbox">
+    <label class="form-check-label" for="exampleCheck1">Я согласен с <a href="#">политикой конфиденциальности</a> и <a href="#">пользовательским соглашением</a></label>
+  </div>
+  <button type="submit" class="btn btn-primary">Создать аккаунт</button>
+</form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'store/base.html' %}
+
+{% block add-form %}
+
+<form action='/book/new/' method="post" enctype="multipart/form-data" class="m-5">
+  {% csrf_token  %}
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
+    <div id="emailHelp" class="form-text">Name should not break the <a href="#">rules</a>.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Price</label>
+    <input type="number" class="form-control" id="exampleInputPassword1" name="price">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Writer</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="writer">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Description</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="description">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Image</label>
+    <input type="file" class="form-control-file" id="exampleInputEmail1" aria-describedby="emailHelp" name="image">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+{% endblock %}

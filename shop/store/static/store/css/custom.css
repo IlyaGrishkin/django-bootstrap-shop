@@ -1,0 +1,19 @@
+.btn{
+margin-right: 20px;
+margin-left: 20px;
+width: 100px;
+height: 40px;
+margin-top: 30px;
+}
+
+.c{
+display: flex;
+display: inline-block;
+margin: 0px;
+}
+
+.book_list{
+margin-top: 30px;
+margin-left: 50px;
+margin-bottom: px;
+}

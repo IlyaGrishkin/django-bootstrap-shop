@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'store/css/boot.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'store/css/book-detail.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'store/css/cart_detail.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Переключатель навигации">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Django-shop</a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/add/book/form/">Добавить книгу</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cart/detail/">Корзина</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login/">Аккаунт</a>
+        </li>
+      </ul>
+          <form action="/search/results/" method="post" class="d-flex" role="search">
+              {% csrf_token %}
+                <input class="form-control mx-4" type="search" placeholder="Поиск" aria-label="Поиск" name="name">
+                <button class="btn btn-outline-success" type="submit">Поиск</button>
+          </form>
+
+    </div>
+  </div>
+</nav>
+
+{% block content %}
+{% endblock %}
+
+{% block add-form %}
+{% endblock %}
+
+{% block book_detail %}
+{% endblock %}
+
+{% block login %}
+{% endblock %}
+
+{% block cart_detail %}
+{% endblock %}
+</body>
+</html>

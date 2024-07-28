@@ -1,0 +1,73 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block cart_detail %}
+<div class="container-fluid mt-5">
+     <div class="row">
+        <div class="col-lg-1 col-md-1 col-sm-2 col-xs-1">
+        </div>
+         <div class="col-lg-9 col-md-9 col-sm-8 col-xs-10">
+            <div class="row">
+                {% for item in cart %}
+                <div class="col-lg-5 col-md-6">
+
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-size: 30px;">{{ item.book.name }}</h5>
+                        <div class="d-grid gap-2">
+                              <div class="cart-form" style="">
+
+                                  <form class="update-cart" method="post" action="/cart/add/{{item.book.pk}}/">
+                                      {{item.update_quantity_form}}
+                                      <button class="btn btn-primary btn-sm" type="submit">Изменить</button>
+                                      {% csrf_token %}
+                                  </form>
+
+                              </div>
+                            <p style="margin-top: 0; margin-bottom: 0;"> Сумма: {{ item.total_price }}</p>
+                            <a href="/cart/remove/{{item.book.id}}/" class="btn btn-danger">Удалить из корзины</a>
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div>
+         </div>
+         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
+             <p>Всего: {{ cart.get_total_price }}$</p>
+             <a style="margin-bottom: 14px;" href="/" class="btn btn-outline-success">Продолжить покупки</a>
+             <a href="#" class="btn btn-success">Перейти к оплате</a>
+
+        </div>
+     </div>
+</div>
+
+<style>
+    .cart-form {
+    margin-bottom: 0;
+    }
+    .cart-form button {
+    margin-left: 20px;
+    }
+    .cart-form>div>label {
+    font-size: 23px;
+    font-family: sans-serif;
+    }
+.cart-form>div>label {
+font-size: 23px;
+font-family: sans-serif;
+}
+
+#id_quantity {
+    background-color: #c6f7bd;
+    border-radius: 6px;
+    font-family: monospace;
+    font-weight: 0;
+    border: 2px;
+}
+    .update-cart {
+    display: flex;
+    }
+</style>
+{% endblock %}

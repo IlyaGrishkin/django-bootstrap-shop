@@ -1,0 +1,43 @@
+.star-rating-ilya {
+display: flex;
+margin-top: 30px;
+}
+
+.star-rating-ilya>img{
+width: 35px;
+height: 35px;
+}
+
+.star-rating-ilya>p{
+font-size: 25px;
+margin-left: 10px;
+}
+
+.authors {
+margin-top: 30px;
+}
+
+.about-book {
+margin-top: 30px;
+}
+
+@media (max-width: 550px){
+    .price {
+        margin-top: 28px;
+    }
+}
+
+.about-book>p{
+font-size: 22px;
+}
+
+.cart-form {
+margin-bottom: 10px;
+}
+
+#id_quantity {
+background-color: red;
+}
+
+/* добавляй свои классы в начале: <div class='my-class bootstrap-class'> */
+

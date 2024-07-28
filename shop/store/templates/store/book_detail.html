@@ -1,0 +1,68 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'store/css/book-detail.css' %}">
+</head>
+{% block book_detail %}
+
+
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+             {% if book.image %}
+                 <img style="margin-bottom: 20px;" src="{{book.image.url}}" class="card-img-top" alt="...">
+             {% endif %}
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <h1>{{book.name}}</h1>
+             <div class="star-rating-ilya" id="star">
+                 <img src="https://img.icons8.com/?size=100&id=qdQpy48X3Rjv&format=png&color=000000" alt="">
+                 <p>{{average_rating}}</p>
+             </div>
+             <div class="authors">
+                 <h2>Авторы:</h2>
+                 <p style="font-size: 25px">{{book.writer}}</p>
+             </div>
+             <div class="about-book">
+                 <h2>О книге</h2>
+                 <p>{{book.description}}</p>
+             </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div id='price' class="price d-grid gap-2 mx-auto">
+                  <h2>{{book.price}} $</h2>
+                  <form action="/cart/add/{{book_id}}/" method="post" target="_blank">
+                      {% csrf_token  %}
+                      <div class="cart-form" style="margin-bottom: 20px;">
+                          {{ cart_form }}
+                      </div>
+                      <button class="btn btn-primary" type="submit">Добавить в корзину</button>
+                  </form>
+                  <form action="#" target="_blank">
+                      <button class="btn btn-primary" type="button">Button</button>
+                  </form>
+                </div>
+        </div>
+
+
+
+        </div>
+    </div>
+
+</div>
+
+<style>
+.cart-form>div>label {
+font-size: 23px;
+font-family: sans-serif;
+}
+
+#id_quantity {
+    background-color: #c6f7bd;
+    border-radius: 6px;
+}
+</style>
+{% endblock %}
+
+

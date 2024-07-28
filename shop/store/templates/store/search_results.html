@@ -1,0 +1,14 @@
+{% extends 'store/base.html' %}
+
+
+{% block content %}
+<div class="book_list">
+    {% for book in filtered_books %}
+       <h2> {{book.name}} </h2>
+       <h4>{{ book.published }}</h4>
+       <a href="{{ book.get_absolute_url }}"> Выбрать книгу  </a>
+    {% endfor %}
+
+</div>
+{% endblock %}
+
