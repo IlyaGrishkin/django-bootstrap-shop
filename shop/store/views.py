@@ -112,6 +112,10 @@ def cart_remove(request, pk):
     return redirect('/cart/detail/')
 
 
+def sign_in_view(request):
+    return render(request, 'store/sign_in.html')
+
+
 def login_view(request):
     return render(request, 'store/login.html')
 
@@ -125,6 +129,20 @@ def user_register_view(request):
         user = User.objects.create_user(str(login), '', str(password))
         user.save()
     return HttpResponse('Created')
+
+
+def user_login_view(request):
+    lgn = request.POST['login']
+    password = request.POST['password']
+    user = authenticate(request, username=lgn, password=password)
+    if user is not None:
+        login(request, user)
+        return redirect('/')
+    else:
+        return HttpResponse('error')
+
+
+# No backend authenticated the credentials
 
 
 # ToDO  owner = request.user (auth needed)
@@ -153,6 +171,7 @@ def home(request):
         'books': queryset,
         'like': Like.objects.all(),
         'search_form': SearchBookForm,
+        'user': request.user,
     }
     return render(request, 'store/home.html', context)
 

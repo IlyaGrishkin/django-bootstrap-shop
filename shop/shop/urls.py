@@ -39,8 +39,10 @@ urlpatterns = [
     path('cart/detail/', cart_detail),
     path('api/home/', include(router.urls)),
     path('cart/remove/<int:pk>/', cart_remove),
+    path('signin/', sign_in_view),
+    path('signin/new/', user_register_view),
     path('login/', login_view),
-    path('login/new/', user_register_view)
+    path('login/new/', user_login_view),
 
 
 ]
