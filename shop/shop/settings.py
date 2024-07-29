@@ -29,7 +29,7 @@ DEBUG = True
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 CART_SESSION_ID = 'cart'
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 ################################
 
 

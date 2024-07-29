@@ -4,6 +4,9 @@
 
 <div class="container-fluid mt-5">
     <div class="row">
+        <h1>{{ user }}</h1>
+    </div>
+    <div class="row">
         <div class="col-lg-1 col-md-1 col-sm-2 col-xs-1">
 
         </div>
@@ -11,16 +14,16 @@
         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-10">
             <div class="row">
         {% for book in books %}
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="card m-3" style="width: 18rem;">
                 {% if book.image %}
                   <img src="{{book.image.url}}" class="card-img-top" alt="...">
                 {% endif %}
-              <div class="card-body">
-                    <h5 class="card-title">{{book.name}}</h5>
-                    <p class="card-text"> {{ book.description }}</p>
-                    <a href="{{ book.get_absolute_url }}" class="btn btn-primary">Купить за {{ book.price }}</a>
-              </div>
+                  <div class="card-body">
+                        <h5 class="card-title">{{book.name}}</h5>
+                        <p class="card-text"> {{ book.description }}</p>
+                        <a href="{{ book.get_absolute_url }}" class="btn btn-primary">Купить за {{ book.price }}</a>
+                  </div>
               </div>
         </div>
         {% endfor %}
